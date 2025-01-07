@@ -132,6 +132,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         try:
             # Figure out what exactly is being requested.
+            # self.path = javascript.html here
             self.full_path = os.getcwd() + self.path
 
             for case in self.Cases:
@@ -147,7 +148,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
     def list_dir(self, full_path):
         try:
             entries = os.listdir(full_path)
-            bullets = ['<li>{0}</li>'.format(e)
+            bullets = ['<li><h1>{0}</h1></li>'.format(e)
                 for e in entries if not e.startswith('.')]
             content = str.encode(self.Listing_Page.format('\n'.join(bullets)))
             self.send_content(content)

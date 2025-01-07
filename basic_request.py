@@ -1,5 +1,5 @@
 import requests
-response = requests.get('http://aosabook.org/en/500L/web-server/testpage.html')
+response = requests.get(something_dynamic)
 print('status code:', response.status_code)
 print('content length:', response.headers['content-length'])
 print(response.text)
